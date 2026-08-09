@@ -1,96 +1,42 @@
-/* =========================
-   Tablet
-========================= */
-
-@media (max-width: 900px) {
-
-    .nav-links {
-        gap: 18px;
-    }
-
-    .skills-grid,
-    .projects-grid,
-    .certificates-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .about-content {
-        grid-template-columns: 1fr;
-    }
-
-    .about-visual {
-        display: none;
-    }
-
-    .contact-wrapper {
-        grid-template-columns: 1fr;
-    }
-}
-
-
-/* =========================
-   Mobile
-========================= */
+/* =========================================================
+   MOBILE RESPONSIVE
+========================================================= */
 
 @media (max-width: 700px) {
 
-    .navbar {
-        min-height: 64px;
+    /* =====================================================
+       GLOBAL
+    ====================================================== */
+
+    .container {
+        width: 88%;
     }
 
-    .logo {
-        font-size: 19px;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .nav-links {
-        display: none;
-
-        position: absolute;
-
-        top: 64px;
-        left: 0;
-
-        width: 100%;
-
-        padding: 20px 5%;
-
-        flex-direction: column;
-        align-items: flex-start;
-
-        gap: 18px;
-
-        background: #050505;
-
-        border-bottom: 1px solid #222222;
-    }
-
-    .nav-links.active {
-        display: flex;
+    section {
+        padding: 55px 0;
     }
 
 
-    /* Hero */
+    /* =====================================================
+       HERO
+    ====================================================== */
 
     .hero-section {
-        min-height: calc(100vh - 64px);
+        min-height: 500px;
 
-        padding: 60px 20px;
+        padding: 65px 15px 50px;
     }
 
     .hero-content h1 {
-        font-size: 46px;
+        font-size: 43px;
     }
 
     .hero-content h2 {
-        font-size: 25px;
+        font-size: 24px;
     }
 
     .hero-content p {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .hero-buttons {
@@ -102,48 +48,284 @@
     }
 
     .btn {
-        width: 190px;
+        width: 180px;
     }
 
 
-    /* Sections */
+    /* =====================================================
+       SECTION HEADINGS
+    ====================================================== */
 
-    section {
-        padding: 75px 0;
+    .section-heading {
+        margin-bottom: 28px;
     }
 
     .section-heading h2 {
-        font-size: 32px;
+        font-size: 29px;
+    }
+
+    .section-heading p {
+        font-size: 14px;
     }
 
 
-    /* Grids */
+    /* =====================================================
+       ABOUT
+    ====================================================== */
 
-    .skills-grid,
-    .projects-grid,
-    .certificates-grid {
-        grid-template-columns: 1fr;
+    .about-section {
+        padding-bottom: 70px;
     }
 
-
-    /* Experience */
-
-    .experience-header {
-        flex-direction: column;
-    }
-
-
-    /* Footer */
-
-    .footer-content {
+    .about-content {
         grid-template-columns: 1fr;
 
-        gap: 30px;
+        gap: 20px;
     }
+
+    .about-text p {
+        font-size: 14px;
+
+        line-height: 1.8;
+    }
+
+
+    /*
+       On mobile the cat returns to normal flow.
+       It will not overlap Education.
+    */
+
+    .about-image {
+        position: relative;
+
+        right: auto;
+
+        bottom: auto;
+
+        width: 100%;
+
+        min-height: 200px;
+
+        margin-top: 20px;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+    }
+
+    .about-image img {
+        width: 220px;
+    }
+
+
+    /* =====================================================
+       EDUCATION
+    ====================================================== */
+
+    .education-timeline {
+        padding-left: 32px;
+    }
+
+    .education-timeline::before {
+        display: none;
+    }
+
+    .education-item {
+        min-height: 125px;
+
+        padding-bottom: 30px;
+    }
+
+
+    /* Connect only to next education item */
+
+    .education-item:not(:last-child)::after {
+        left: -25px;
+
+        top: 18px;
+
+        bottom: -12px;
+
+        width: 2px;
+
+        background: #542080;
+    }
+
+
+    .education-marker {
+        left: -32px;
+
+        width: 17px;
+        height: 17px;
+    }
+
+    .education-marker span {
+        font-size: 18px;
+    }
+
+    .education-content {
+        padding-left: 5px;
+    }
+
+    .education-content h3 {
+        font-size: 18px;
+    }
+
+    .education-time {
+        margin-bottom: 5px;
+
+        font-size: 13px;
+    }
+
+    .education-degree {
+        font-size: 14px;
+
+        line-height: 1.6;
+    }
+
+
+    /* =====================================================
+       SKILLS
+    ====================================================== */
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+
+        gap: 14px;
+    }
+
+    .skill-card {
+        min-height: auto;
+
+        padding: 22px;
+    }
+
+    .skill-card h3 {
+        font-size: 19px;
+    }
+
+
+    /* =====================================================
+       PROJECTS
+    ====================================================== */
+
+    .project-heading {
+        text-align: center;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+    .project-content {
+        padding: 22px;
+    }
+
+
+    /* =====================================================
+       EXPERIENCE
+    ====================================================== */
+
+    .experience-timeline {
+        padding-left: 32px;
+    }
+
+    .experience-timeline::before {
+        display: none;
+    }
+
+    .experience-item {
+        min-height: 0;
+
+        padding-bottom: 38px;
+    }
+
+
+    /* Connect only to next experience item */
+
+    .experience-item:not(:last-child)::after {
+        left: -25px;
+
+        top: 18px;
+
+        bottom: -12px;
+
+        width: 2px;
+
+        background: #542080;
+    }
+
+
+    .experience-marker {
+        left: -32px;
+
+        width: 17px;
+        height: 17px;
+    }
+
+    .experience-marker span {
+        font-size: 18px;
+    }
+
+    .experience-content {
+        padding-left: 5px;
+
+        max-width: none;
+    }
+
+    .experience-content h3 {
+        font-size: 18px;
+    }
+
+    .experience-time {
+        margin-bottom: 8px;
+
+        font-size: 13px;
+    }
+
+    .experience-content h4 {
+        margin-bottom: 10px;
+
+        font-size: 15px;
+    }
+
+    .experience-description {
+        font-size: 13px;
+
+        line-height: 1.75;
+    }
+
+
+    /* =====================================================
+       CONTACT
+    ====================================================== */
+
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+    .contact-form-card,
+    .contact-card {
+        padding: 22px;
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ====================================================== */
 
     .footer-bottom {
         flex-direction: column;
 
+        align-items: flex-start;
+
         gap: 5px;
     }
+
 }
