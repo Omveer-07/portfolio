@@ -4,7 +4,14 @@ import '../data/portfolio_data.dart';
 import '../utils/app_colors.dart';
 
 class AboutSection extends StatelessWidget {
-  const AboutSection({super.key});
+  const AboutSection({
+    super.key,
+    required this.onViewWork,
+    required this.onGetInTouch,
+  });
+
+  final VoidCallback onViewWork;
+  final VoidCallback onGetInTouch;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +27,11 @@ class AboutSection extends StatelessWidget {
       ),
       child: Column(
         children: [
-          _IntroductionSection(isMobile: isMobile),
+          _IntroductionSection(
+            isMobile: isMobile,
+            onViewWork: onViewWork,
+            onGetInTouch: onGetInTouch,
+          ),
 
           const SizedBox(height: 100),
 
@@ -32,35 +43,20 @@ class AboutSection extends StatelessWidget {
 }
 
 class _IntroductionSection extends StatelessWidget {
-  const _IntroductionSection({required this.isMobile});
+  const _IntroductionSection({
+    required this.isMobile,
+    required this.onViewWork,
+    required this.onGetInTouch,
+  });
 
   final bool isMobile;
+  final VoidCallback onViewWork;
+  final VoidCallback onGetInTouch;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 9),
-          decoration: BoxDecoration(
-            color: AppColors.primary.withAlpha((255 * 0.15).round()),
-            borderRadius: BorderRadius.circular(30),
-            border: Border.all(
-              color: AppColors.primary.withAlpha((255 * 0.5).round()),
-            ),
-          ),
-          child: const Text(
-            "Available for Opportunities",
-            style: TextStyle(
-              color: AppColors.textPrimary,
-              fontSize: 13,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-        ),
-
-        const SizedBox(height: 24),
-
         RichText(
           textAlign: TextAlign.center,
           text: TextSpan(
@@ -114,7 +110,7 @@ class _IntroductionSection extends StatelessWidget {
           runSpacing: 12,
           children: [
             ElevatedButton(
-              onPressed: () {},
+              onPressed: onViewWork,
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.primary,
                 foregroundColor: Colors.white,
@@ -130,7 +126,7 @@ class _IntroductionSection extends StatelessWidget {
             ),
 
             OutlinedButton(
-              onPressed: () {},
+              onPressed: onGetInTouch,
               style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.white,
                 side: const BorderSide(color: AppColors.primary),

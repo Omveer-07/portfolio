@@ -59,7 +59,7 @@ class ContactSection extends StatelessWidget {
 
           _SocialLinks(isMobile: isMobile),
 
-          const SizedBox(height: 60),
+          const SizedBox(height: 30),
 
           _buildDivider(),
         ],
