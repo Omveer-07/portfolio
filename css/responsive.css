@@ -244,6 +244,29 @@
         padding-bottom: 38px;
     }
 
+    /* =====================================================
+   SWORD IMAGE - MOBILE
+===================================================== */
+
+    .experience-image {
+        position: relative;
+
+        top: auto;
+        right: auto;
+
+        width: 100%;
+
+        margin: 10px 0 30px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .experience-image img {
+        width: 180px;
+    }
+
 
     /* Connect only to next experience item */
 

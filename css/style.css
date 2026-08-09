@@ -13,9 +13,9 @@ html {
 }
 
 body {
-    font-family: "JetBrains Mono", monospace;
+    font-family: Arial, Helvetica, sans-serif;
     background: #000000;
-    color: #ffffff;
+    color: #feeeee;
     line-height: 1.6;
     overflow-x: hidden;
 }
@@ -93,16 +93,16 @@ img {
     font-size: 16px;
 }
 
-
-/* =========================================================
-   BUTTONS
-========================================================= */
-
 .hero-buttons {
     display: flex;
     justify-content: center;
     gap: 18px;
 }
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
 
 .btn {
     display: inline-flex;
@@ -226,18 +226,12 @@ section {
 
 /* =========================================================
    CAT IMAGE
-   Positioned beside Education
 ========================================================= */
 
 .about-image {
     position: absolute;
 
-    right: 20%;
-
-    /*
-       Reduced from -370px.
-       This moves the cat upward closer to Education.
-    */
+    right: 23%;
     bottom: -400px;
 
     width: 300px;
@@ -260,7 +254,6 @@ section {
 
 .about-image img {
     width: 300px;
-
     height: auto;
 
     display: block;
@@ -278,10 +271,6 @@ section {
 
     object-fit: contain;
 
-    /*
-       Removes the black rectangular background
-       from the image.
-    */
     mix-blend-mode: screen;
 
     filter: none;
@@ -314,15 +303,9 @@ section {
     padding-left: 45px;
 }
 
-
-/* No full timeline */
-
 .education-timeline::before {
     display: none;
 }
-
-
-/* Education item */
 
 .education-item {
     position: relative;
@@ -335,7 +318,7 @@ section {
 }
 
 
-/* Connect only to next education item */
+/* Timeline connection */
 
 .education-item:not(:last-child)::after {
     content: "";
@@ -345,7 +328,6 @@ section {
     left: -35px;
 
     top: 22px;
-
     bottom: -18px;
 
     width: 2px;
@@ -356,13 +338,12 @@ section {
 }
 
 
-/* Education marker */
+/* Marker */
 
 .education-marker {
     position: absolute;
 
     left: -45px;
-
     top: 0;
 
     width: 22px;
@@ -387,7 +368,7 @@ section {
 }
 
 
-/* Education content */
+/* Content */
 
 .education-content {
     padding-left: 20px;
@@ -620,8 +601,107 @@ section {
 ========================================================= */
 
 .experience-section {
+    position: relative;
+
     background: #000000;
+
+    overflow: visible;
 }
+
+
+/* =========================================================
+   EXPERIENCE HEADING
+========================================================= */
+
+.experience-heading {
+    margin-bottom: 40px;
+}
+
+.experience-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.experience-title h2 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 34px;
+
+    font-weight: 700;
+
+    line-height: 1.2;
+}
+
+.experience-heading p {
+    margin-top: 10px;
+
+    color: #a0a0a0;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   SMALL SWORD BESIDE EXPERIENCE HEADING
+========================================================= */
+
+.experience-image {
+    position: static;
+
+    width: 45px;
+    height: 45px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+
+    border: none;
+    outline: none;
+    box-shadow: none;
+
+    overflow: visible;
+
+    z-index: 5;
+}
+
+.experience-image img {
+    width: 45px;
+    height: 45px;
+
+    display: block;
+
+    margin: 0;
+    padding: 0;
+
+    background: transparent;
+
+    border: none;
+    outline: none;
+    box-shadow: none;
+
+    border-radius: 0;
+
+    object-fit: contain;
+
+    mix-blend-mode: normal;
+
+    filter: none;
+}
+
+
+/* =========================================================
+   EXPERIENCE TIMELINE
+========================================================= */
 
 .experience-timeline {
     position: relative;
@@ -649,7 +729,7 @@ section {
 }
 
 
-/* Connect only to next experience */
+/* Timeline connection */
 
 .experience-item:not(:last-child)::after {
     content: "";
@@ -659,7 +739,6 @@ section {
     left: -35px;
 
     top: 22px;
-
     bottom: -11px;
 
     width: 2px;
@@ -670,13 +749,12 @@ section {
 }
 
 
-/* Experience marker */
+/* Marker */
 
 .experience-marker {
     position: absolute;
 
     left: -45px;
-
     top: 0;
 
     width: 22px;
@@ -962,8 +1040,7 @@ section {
 
     .about-image {
         right: 3%;
-
-        bottom: -280px;
+        bottom: -220px;
     }
 
     .about-image img {
