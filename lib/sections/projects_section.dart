@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../data/portfolio_data.dart';
 import '../utils/app_colors.dart';
+import '../widgets/shared_components.dart';
 
 class ProjectsSection extends StatelessWidget {
   const ProjectsSection({super.key});
@@ -13,58 +14,18 @@ class ProjectsSection extends StatelessWidget {
     final bool isMobile = screenWidth < 700;
     final bool isTablet = screenWidth >= 700 && screenWidth < 1050;
 
-    return Container(
-      width: double.infinity,
-      padding: EdgeInsets.symmetric(
-        horizontal: isMobile ? 24 : 60,
-        vertical: 40,
-      ),
-      child: Center(
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(
-            maxWidth: 1100,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                "My Projects",
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.textPrimary,
-                ),
-              ),
-
-              const SizedBox(height: 12),
-
-              const Text(
-                "Projects I've built and worked on.",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: AppColors.textSecondary,
-                ),
-              ),
-
-              const SizedBox(height: 32),
-
-              _ProjectsGrid(
-                isMobile: isMobile,
-                isTablet: isTablet,
-              ),
-            ],
-          ),
-        ),
-      ),
+    return SectionLayout(
+      isMobile: isMobile,
+      title: "My Projects",
+      subtitle: "Projects I've built and worked on.",
+      contentSpacing: 32,
+      child: _ProjectsGrid(isMobile: isMobile, isTablet: isTablet),
     );
   }
 }
 
 class _ProjectsGrid extends StatelessWidget {
-  const _ProjectsGrid({
-    required this.isMobile,
-    required this.isTablet,
-  });
+  const _ProjectsGrid({required this.isMobile, required this.isTablet});
 
   final bool isMobile;
   final bool isTablet;
@@ -96,9 +57,7 @@ class _ProjectsGrid extends StatelessWidget {
           children: projects.map((project) {
             return SizedBox(
               width: cardWidth,
-              child: _ProjectCard(
-                project: project,
-              ),
+              child: _ProjectCard(project: project),
             );
           }).toList(),
         );
@@ -108,29 +67,19 @@ class _ProjectsGrid extends StatelessWidget {
 }
 
 class _ProjectCard extends StatelessWidget {
-  const _ProjectCard({
-    required this.project,
-  });
+  const _ProjectCard({required this.project});
 
   final Map<String, dynamic> project;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: AppColors.card,
-        borderRadius: BorderRadius.circular(14),
-        border: Border.all(
-          color: AppColors.border,
-        ),
-      ),
-      clipBehavior: Clip.antiAlias,
+    return AppCard(
+      borderRadius: 14,
+      borderColor: AppColors.border,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _ProjectImage(
-            imagePath: project["image"] as String?,
-          ),
+          _ProjectImage(imagePath: project["image"] as String?),
 
           Padding(
             padding: const EdgeInsets.all(20),
@@ -162,8 +111,9 @@ class _ProjectCard extends StatelessWidget {
                 const SizedBox(height: 16),
 
                 _TechnologyChips(
-                  technologies:
-                      List<String>.from(project["technologies"] as List),
+                  technologies: List<String>.from(
+                    project["technologies"] as List,
+                  ),
                 ),
 
                 const SizedBox(height: 18),
@@ -176,13 +126,8 @@ class _ProjectCard extends StatelessWidget {
                     padding: EdgeInsets.zero,
                     foregroundColor: AppColors.primary,
                   ),
-                  icon: const Icon(
-                    Icons.arrow_outward,
-                    size: 17,
-                  ),
-                  label: const Text(
-                    "View Project",
-                  ),
+                  icon: const Icon(Icons.arrow_outward, size: 17),
+                  label: const Text("View Project"),
                 ),
               ],
             ),
@@ -194,9 +139,7 @@ class _ProjectCard extends StatelessWidget {
 }
 
 class _ProjectImage extends StatelessWidget {
-  const _ProjectImage({
-    required this.imagePath,
-  });
+  const _ProjectImage({required this.imagePath});
 
   final String? imagePath;
 
@@ -205,12 +148,9 @@ class _ProjectImage extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 190,
-      color: AppColors.primaryDark.withOpacity(0.25),
+      color: AppColors.primaryDark.withAlpha((255 * 0.25).round()),
       child: imagePath != null && imagePath!.isNotEmpty
-          ? Image.asset(
-              imagePath!,
-              fit: BoxFit.cover,
-            )
+          ? Image.asset(imagePath!, fit: BoxFit.cover)
           : const Center(
               child: Icon(
                 Icons.image_outlined,
@@ -223,9 +163,7 @@ class _ProjectImage extends StatelessWidget {
 }
 
 class _TechnologyChips extends StatelessWidget {
-  const _TechnologyChips({
-    required this.technologies,
-  });
+  const _TechnologyChips({required this.technologies});
 
   final List<String> technologies;
 
@@ -235,25 +173,7 @@ class _TechnologyChips extends StatelessWidget {
       spacing: 7,
       runSpacing: 7,
       children: technologies.map((technology) {
-        return Container(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 10,
-            vertical: 5,
-          ),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            border: Border.all(
-              color: AppColors.primary,
-            ),
-          ),
-          child: Text(
-            technology,
-            style: const TextStyle(
-              fontSize: 11,
-              color: AppColors.textPrimary,
-            ),
-          ),
-        );
+        return AppChip(label: technology);
       }).toList(),
     );
   }

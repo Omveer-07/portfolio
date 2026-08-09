@@ -20,15 +20,11 @@ class AboutSection extends StatelessWidget {
       ),
       child: Column(
         children: [
-          _IntroductionSection(
-            isMobile: isMobile,
-          ),
+          _IntroductionSection(isMobile: isMobile),
 
           const SizedBox(height: 100),
 
-          _DetailedAboutSection(
-            isMobile: isMobile,
-          ),
+          _DetailedAboutSection(isMobile: isMobile),
         ],
       ),
     );
@@ -36,9 +32,7 @@ class AboutSection extends StatelessWidget {
 }
 
 class _IntroductionSection extends StatelessWidget {
-  const _IntroductionSection({
-    required this.isMobile,
-  });
+  const _IntroductionSection({required this.isMobile});
 
   final bool isMobile;
 
@@ -47,15 +41,12 @@ class _IntroductionSection extends StatelessWidget {
     return Column(
       children: [
         Container(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 18,
-            vertical: 9,
-          ),
+          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 9),
           decoration: BoxDecoration(
-            color: AppColors.primary.withOpacity(0.15),
+            color: AppColors.primary.withAlpha((255 * 0.15).round()),
             borderRadius: BorderRadius.circular(30),
             border: Border.all(
-              color: AppColors.primary.withOpacity(0.5),
+              color: AppColors.primary.withAlpha((255 * 0.5).round()),
             ),
           ),
           child: const Text(
@@ -79,14 +70,10 @@ class _IntroductionSection extends StatelessWidget {
               color: AppColors.textPrimary,
             ),
             children: const [
-              TextSpan(
-                text: "Hey! I'm ",
-              ),
+              TextSpan(text: "Hey! I'm "),
               TextSpan(
                 text: "Omveer",
-                style: TextStyle(
-                  color: AppColors.primary,
-                ),
+                style: TextStyle(color: AppColors.primary),
               ),
             ],
           ),
@@ -107,9 +94,7 @@ class _IntroductionSection extends StatelessWidget {
         const SizedBox(height: 24),
 
         ConstrainedBox(
-          constraints: const BoxConstraints(
-            maxWidth: 650,
-          ),
+          constraints: const BoxConstraints(maxWidth: 650),
           child: Text(
             "I build practical mobile, web and backend applications.",
             textAlign: TextAlign.center,
@@ -148,9 +133,7 @@ class _IntroductionSection extends StatelessWidget {
               onPressed: () {},
               style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.white,
-                side: const BorderSide(
-                  color: AppColors.primary,
-                ),
+                side: const BorderSide(color: AppColors.primary),
                 padding: const EdgeInsets.symmetric(
                   horizontal: 28,
                   vertical: 16,
@@ -169,18 +152,14 @@ class _IntroductionSection extends StatelessWidget {
 }
 
 class _DetailedAboutSection extends StatelessWidget {
-  const _DetailedAboutSection({
-    required this.isMobile,
-  });
+  const _DetailedAboutSection({required this.isMobile});
 
   final bool isMobile;
 
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
-      constraints: const BoxConstraints(
-        maxWidth: 1100,
-      ),
+      constraints: const BoxConstraints(maxWidth: 1100),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -195,10 +174,7 @@ class _DetailedAboutSection extends StatelessWidget {
 
           const SizedBox(height: 28),
 
-          if (isMobile)
-            _MobileAboutContent()
-          else
-            _DesktopAboutContent(),
+          if (isMobile) _MobileAboutContent() else _DesktopAboutContent(),
         ],
       ),
     );
@@ -268,23 +244,16 @@ class _ProfileImagePlaceholder extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.card,
         borderRadius: BorderRadius.circular(24),
-        border: Border.all(
-          color: AppColors.primary,
-          width: 1.5,
-        ),
+        border: Border.all(color: AppColors.primary, width: 1.5),
         boxShadow: [
           BoxShadow(
-            color: AppColors.primary.withOpacity(0.25),
+            color: AppColors.primary.withAlpha((255 * 0.25).round()),
             blurRadius: 30,
             spreadRadius: 2,
           ),
         ],
       ),
-      child: const Icon(
-        Icons.person,
-        size: 90,
-        color: AppColors.primary,
-      ),
+      child: const Icon(Icons.person, size: 90, color: AppColors.primary),
     );
   }
 }

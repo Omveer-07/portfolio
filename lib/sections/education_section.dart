@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../utils/app_colors.dart';
+import '../widgets/shared_components.dart';
 
 class EducationSection extends StatelessWidget {
   const EducationSection({super.key});
@@ -10,34 +11,11 @@ class EducationSection extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     final isMobile = screenWidth < 700;
 
-    return Container(
-      width: double.infinity,
-      padding: EdgeInsets.symmetric(
-        horizontal: isMobile ? 24 : 60,
-        vertical: 40,
-      ),
-      child: Center(
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 1100),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                "Education",
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.textPrimary,
-                ),
-              ),
-
-              const SizedBox(height: 30),
-
-              _EducationContainer(isMobile: isMobile),
-            ],
-          ),
-        ),
-      ),
+    return SectionLayout(
+      isMobile: isMobile,
+      title: "Education",
+      contentSpacing: 30,
+      child: _EducationContainer(isMobile: isMobile),
     );
   }
 }

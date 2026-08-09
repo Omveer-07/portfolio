@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../data/portfolio_data.dart';
 import '../models/experience_model.dart';
 import '../utils/app_colors.dart';
+import '../widgets/shared_components.dart';
 
 class ExperienceSection extends StatelessWidget {
   const ExperienceSection({super.key});
@@ -12,44 +13,14 @@ class ExperienceSection extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     final isMobile = screenWidth < 700;
 
-    return Container(
-      width: double.infinity,
-      padding: EdgeInsets.symmetric(
-        horizontal: isMobile ? 24 : 60,
-        vertical: 40,
-      ),
-      child: Center(
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 1100),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                "Experience",
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.textPrimary,
-                ),
-              ),
-
-              const SizedBox(height: 12),
-
-              const Text(
-                "My internship experience",
-                style: TextStyle(fontSize: 16, color: AppColors.textSecondary),
-              ),
-
-              const SizedBox(height: 40),
-
-              if (isMobile)
-                const _MobileExperienceList()
-              else
-                const _DesktopExperienceList(),
-            ],
-          ),
-        ),
-      ),
+    return SectionLayout(
+      isMobile: isMobile,
+      title: "Experience",
+      subtitle: "My internship experience",
+      contentSpacing: 40,
+      child: isMobile
+          ? const _MobileExperienceList()
+          : const _DesktopExperienceList(),
     );
   }
 }
@@ -149,14 +120,11 @@ class _ExperienceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return AppCard(
       padding: const EdgeInsets.all(24),
       margin: const EdgeInsets.only(bottom: 32),
-      decoration: BoxDecoration(
-        color: AppColors.card,
-        borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: AppColors.border),
-      ),
+      borderRadius: 14,
+      borderColor: AppColors.border,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

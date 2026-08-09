@@ -93,21 +93,21 @@ class PortfolioData {
       title: "LinkedIn",
       value: "linkedin.com/in/your-link",
       icon: Icons.work,
-      url: "https://linkedin.com/in/your-link",
+      url: "https://www.linkedin.com/in/omveersingh07/",
     ),
 
     ContactModel(
       title: "Email",
       value: "yourmail@gmail.com",
       icon: Icons.email_outlined,
-      url: "mailto:yourmail@gmail.com",
+      url: "mailto:omveersingh1725@gmail.com",
     ),
 
     ContactModel(
       title: "WhatsApp",
-      value: "+91XXXXXXXXXX",
+      value: "+919257763670",
       icon: Icons.phone,
-      url: "https://wa.me/91XXXXXXXXXX",
+      url: "https://wa.me/919257763670",
     ),
   ];
 

@@ -1,38 +1,29 @@
 import 'package:flutter/material.dart';
 
 import '../models/project_model.dart';
+import '../utils/app_colors.dart';
+import 'shared_components.dart';
 
 class ProjectCard extends StatelessWidget {
-  const ProjectCard({
-    super.key,
-    required this.project,
-  });
+  const ProjectCard({super.key, required this.project});
 
   final ProjectModel project;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: const Color(0xff1E293B),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      clipBehavior: Clip.antiAlias,
+    return AppCard(
+      borderRadius: 20,
+      color: AppColors.card,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-
           // Project Image
           Container(
             height: 180,
             width: double.infinity,
             color: Colors.grey.shade800,
             child: const Center(
-              child: Icon(
-                Icons.image,
-                size: 60,
-                color: Colors.white54,
-              ),
+              child: Icon(Icons.image, size: 60, color: Colors.white54),
             ),
           ),
 
@@ -41,7 +32,6 @@ class ProjectCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-
                 // Project Title
                 Text(
                   project.title,
@@ -53,7 +43,7 @@ class ProjectCard extends StatelessWidget {
 
                 const SizedBox(height: 12),
 
-                // Project Description 
+                // Project Description
                 Text(
                   project.description,
                   style: const TextStyle(
@@ -67,9 +57,7 @@ class ProjectCard extends StatelessWidget {
 
                 const Text(
                   "Technologies Used",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                  ),
+                  style: TextStyle(fontWeight: FontWeight.w600),
                 ),
 
                 const SizedBox(height: 12),
@@ -78,11 +66,7 @@ class ProjectCard extends StatelessWidget {
                   spacing: 8,
                   runSpacing: 8,
                   children: project.technologies
-                      .map(
-                        (tech) => Chip(
-                          label: Text(tech),
-                        ),
-                      )
+                      .map((tech) => AppChip(label: tech))
                       .toList(),
                 ),
 
@@ -90,7 +74,6 @@ class ProjectCard extends StatelessWidget {
 
                 Row(
                   children: [
-
                     Expanded(
                       child: OutlinedButton.icon(
                         onPressed: () {

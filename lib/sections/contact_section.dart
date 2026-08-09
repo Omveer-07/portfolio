@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../utils/app_colors.dart';
+import '../widgets/shared_components.dart';
 
 class ContactSection extends StatelessWidget {
   const ContactSection({super.key});
 
-  // Replace these with your real details.
-  static const String email = "your.email@example.com";
-  static const String phone = "+91 XXXXX XXXXX";
+  static const String email = "omsingh.btech2023@iujaipur.edu.in";
+  static const String phone = "9257763670";
+  static const String linkedinUrl = "https://www.linkedin.com/in/omveersingh07";
+  static const String githubUrl = "https://github.com/Omveer-07";
+  static const String whatsappUrl = "https://wa.me/9257763670";
 
   @override
   Widget build(BuildContext context) {
@@ -22,12 +26,10 @@ class ContactSection extends StatelessWidget {
       ),
       child: Column(
         children: [
-          // Top divider
           _buildDivider(),
 
           const SizedBox(height: 55),
 
-          // Heading
           const Text(
             "Contact Me",
             textAlign: TextAlign.center,
@@ -40,7 +42,6 @@ class ContactSection extends StatelessWidget {
 
           const SizedBox(height: 12),
 
-          // Small purple line below heading
           Container(
             width: 120,
             height: 3,
@@ -52,19 +53,15 @@ class ContactSection extends StatelessWidget {
 
           const SizedBox(height: 45),
 
-          // Email + Phone cards
           _ContactCards(isMobile: isMobile),
 
           const SizedBox(height: 55),
 
-          // Social links
           _SocialLinks(isMobile: isMobile),
 
           const SizedBox(height: 60),
 
-          
           _buildDivider(),
-
         ],
       ),
     );
@@ -74,8 +71,15 @@ class ContactSection extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 1,
-      color: AppColors.textSecondary.withOpacity(0.25),
+      color: AppColors.textSecondary.withAlpha((255 * 0.25).round()),
     );
+  }
+
+  static Future<void> _launchUrl(String url) async {
+    final uri = Uri.parse(url);
+    if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
+      throw Exception('Could not launch $url');
+    }
   }
 }
 
@@ -93,6 +97,7 @@ class _ContactCards extends StatelessWidget {
             icon: Icons.email_outlined,
             title: "Email Me",
             value: ContactSection.email,
+            url: "mailto:${ContactSection.email}?subject=Hello%20Omveer",
           ),
 
           const SizedBox(height: 20),
@@ -101,6 +106,7 @@ class _ContactCards extends StatelessWidget {
             icon: Icons.phone_outlined,
             title: "Call Me",
             value: ContactSection.phone,
+            url: "tel:${ContactSection.phone}",
           ),
         ],
       );
@@ -115,6 +121,7 @@ class _ContactCards extends StatelessWidget {
             icon: Icons.email_outlined,
             title: "Email Me",
             value: ContactSection.email,
+            url: "mailto:${ContactSection.email}?subject=Hello%20Omveer",
           ),
         ),
 
@@ -126,6 +133,7 @@ class _ContactCards extends StatelessWidget {
             icon: Icons.phone_outlined,
             title: "Call Me",
             value: ContactSection.phone,
+            url: "tel:${ContactSection.phone}",
           ),
         ),
       ],
@@ -138,22 +146,22 @@ class _ContactCard extends StatelessWidget {
     required this.icon,
     required this.title,
     required this.value,
+    required this.url,
   });
 
   final IconData icon;
   final String title;
   final String value;
+  final String url;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return AppCard(
       width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
-      decoration: BoxDecoration(
-        color: AppColors.card,
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppColors.border, width: 1),
-      ),
+      borderRadius: 16,
+      borderColor: AppColors.border,
+      onTap: () => ContactSection._launchUrl(url),
       child: Column(
         children: [
           Container(
@@ -202,9 +210,21 @@ class _SocialLinks extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final socialLinks = [
-      const _SocialItem(icon: Icons.code, name: "GitHub"),
-      const _SocialItem(icon: Icons.business_center_outlined, name: "LinkedIn"),
-      const _SocialItem(icon: Icons.chat_outlined, name: "WhatsApp"),
+      _SocialItem(
+        icon: Icons.code,
+        name: "GitHub",
+        url: ContactSection.githubUrl,
+      ),
+      _SocialItem(
+        icon: Icons.business_center_outlined,
+        name: "LinkedIn",
+        url: ContactSection.linkedinUrl,
+      ),
+      _SocialItem(
+        icon: Icons.chat_outlined,
+        name: "WhatsApp",
+        url: ContactSection.whatsappUrl,
+      ),
     ];
 
     return Wrap(
@@ -217,32 +237,43 @@ class _SocialLinks extends StatelessWidget {
 }
 
 class _SocialItem extends StatelessWidget {
-  const _SocialItem({required this.icon, required this.name});
+  const _SocialItem({
+    required this.icon,
+    required this.name,
+    required this.url,
+  });
 
   final IconData icon;
   final String name;
+  final String url;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          width: 58,
-          height: 58,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            border: Border.all(color: AppColors.primary, width: 1),
+    return GestureDetector(
+      onTap: () => ContactSection._launchUrl(url),
+      child: Column(
+        children: [
+          Container(
+            width: 58,
+            height: 58,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(color: AppColors.primary, width: 1),
+            ),
+            child: Icon(icon, size: 34, color: AppColors.textPrimary),
           ),
-          child: Icon(icon, size: 34, color: AppColors.textPrimary),
-        ),
 
-        const SizedBox(height: 12),
+          const SizedBox(height: 12),
 
-        Text(
-          name,
-          style: const TextStyle(fontSize: 16, color: AppColors.textSecondary),
-        ),
-      ],
+          Text(
+            name,
+            style: const TextStyle(
+              fontSize: 16,
+              color: AppColors.textSecondary,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
