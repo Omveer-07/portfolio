@@ -47,13 +47,13 @@ img {
 ========================================================= */
 
 .hero-section {
-    min-height: 560px;
+    min-height: 500px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    padding: 80px 20px;
+    padding: 70px 20px 25px;
 
     text-align: center;
 }
@@ -157,7 +157,7 @@ img {
 ========================================================= */
 
 section {
-    padding: 75px 0;
+    padding: 30px 0;
 }
 
 .section-heading {
@@ -191,7 +191,7 @@ section {
 
     background: #000000;
 
-    padding-bottom: 100px;
+    padding-bottom: 70px;
 
     overflow: visible;
 }
@@ -243,19 +243,33 @@ section {
 
     text-align: center;
 }
-
-
 /* =========================================================
-   CAT IMAGE
+   EDUCATION
 ========================================================= */
 
-.about-image {
-    position: absolute;
+.education-section {
+    position: relative;
 
-    right: 23%;
-    bottom: -400px;
+    background: #000000;
 
-    width: 300px;
+    z-index: 1;
+}
+
+.education-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.edu-image {
+    position: static;
+
+    width: 45px;
+    height: 45px;
+
+    flex-shrink: 0;
 
     display: flex;
 
@@ -270,12 +284,12 @@ section {
 
     overflow: visible;
 
-    z-index: 10;
+    z-index: 5;
 }
 
-.about-image img {
-    width: 300px;
-    height: auto;
+.edu-image img {
+    width: 45px;
+    height: 45px;
 
     display: block;
 
@@ -292,28 +306,9 @@ section {
 
     object-fit: contain;
 
-    mix-blend-mode: screen;
+    mix-blend-mode: normal;
 
     filter: none;
-
-    transition: transform 0.3s ease;
-}
-
-.about-image img:hover {
-    transform: translateY(-5px);
-}
-
-
-/* =========================================================
-   EDUCATION
-========================================================= */
-
-.education-section {
-    position: relative;
-
-    background: #000000;
-
-    z-index: 1;
 }
 
 .education-timeline {
@@ -427,6 +422,60 @@ section {
     padding-bottom: 0;
 }
 
+.education-image {
+    position: absolute;
+
+    right: 20%;
+    bottom:60px;
+
+    width: 300px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+
+    border: none;
+    outline: none;
+    box-shadow: none;
+
+    overflow: visible;
+
+    z-index: 10;
+}
+
+.education-image img {
+    width: 300px;
+    height: auto;
+
+    display: block;
+
+    margin: 0;
+    padding: 0;
+
+    background: transparent;
+
+    border: none;
+    outline: none;
+    box-shadow: none;
+
+    border-radius: 0;
+
+    object-fit: contain;
+
+    mix-blend-mode: screen;
+
+    filter: none;
+
+    transition: transform 0.3s ease;
+}
+
+.education-image img:hover {
+    transform: translateY(-2px);
+}
+
 
 /* =========================================================
    SKILLS
@@ -434,6 +483,62 @@ section {
 
 .skills-section {
     background: #000000;
+}
+
+.skills-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.skill-image {
+    position: static;
+
+    width: 45px;
+    height: 45px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+
+    border: none;
+    outline: none;
+    box-shadow: none;
+
+    overflow: visible;
+
+    z-index: 5;
+}
+
+.skill-image img {
+    width: 45px;
+    height: 45px;
+
+    display: block;
+
+    margin: 0;
+    padding: 0;
+
+    background: transparent;
+
+    border: none;
+    outline: none;
+    box-shadow: none;
+
+    border-radius: 0;
+
+    object-fit: contain;
+
+    mix-blend-mode: normal;
+
+    filter: none;
 }
 
 .skills-grid {
@@ -504,14 +609,71 @@ section {
 }
 
 .project-heading {
-    text-align: center;
+    margin-bottom: 40px;
+}
+
+.project-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
 }
 
 .project-heading p {
-    max-width: 650px;
+    margin-top: 10px;
 
-    margin-left: auto;
-    margin-right: auto;
+    color: #a0a0a0;
+
+    font-size: 15px;
+}
+
+.project-image {
+    position: static;
+
+    width: 45px;
+    height: 45px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+
+    border: none;
+    outline: none;
+    box-shadow: none;
+
+    overflow: visible;
+
+    z-index: 5;
+}
+
+.project-image img {
+    width: 45px;
+    height: 45px;
+
+    display: block;
+
+    margin: 0;
+    padding: 0;
+
+    background: transparent;
+
+    border: none;
+    outline: none;
+    box-shadow: none;
+
+    border-radius: 0;
+
+    object-fit: contain;
+
+    mix-blend-mode: normal;
+
+    filter: none;
 }
 
 .projects-grid {
@@ -597,6 +759,8 @@ section {
 
 .project-link {
     display: inline-block;
+    width: fit-content;
+    margin-top: auto;
 
     padding: 8px 16px;
 
@@ -934,12 +1098,12 @@ section {
         gap: 30px;
     }
 
-    .about-image {
+    .education-image {
         right: 3%;
         bottom: -220px;
     }
 
-    .about-image img {
+    .education-image img {
         width: 240px;
     }
 
