@@ -1,23 +1,8 @@
-/* =========================================================
-   RESPONSIVE DESIGN
-   Works with the current style.css
-========================================================= */
-
-
-/* =========================================================
-   LARGE TABLET / SMALL LAPTOP
-   1200px and below
-========================================================= */
-
 @media (max-width: 1200px) {
 
     .container {
         width: 90%;
     }
-
-    /* =========================
-       EDUCATION CAT
-    ========================= */
 
     .education-section {
         overflow: visible;
@@ -33,10 +18,6 @@
         width: 250px;
     }
 
-    /* =========================
-       EXPERIENCE
-    ========================= */
-
     .experience-content {
         max-width: 780px;
     }
@@ -46,22 +27,14 @@
     }
 }
 
-
-/* =========================================================
-   TABLET
-   900px and below
-========================================================= */
-
+/* tablet */
 @media (max-width: 900px) {
 
     .container {
         width: 88%;
     }
 
-
-    /* =========================
-       HERO
-    ========================= */
+/* hero*/
 
     .hero-section {
         min-height: 440px;
@@ -76,10 +49,7 @@
         font-size: clamp(24px, 4vw, 32px);
     }
 
-
-    /* =========================
-       COMMON SECTIONS
-    ========================= */
+/* common */
 
     section {
         padding: 25px 0;
@@ -94,9 +64,7 @@
     }
 
 
-    /* =========================
-       ABOUT
-    ========================= */
+  /* about */
 
     .about-section {
         padding-bottom: 35px;
@@ -115,10 +83,7 @@
         font-size: 14px;
     }
 
-
-    /* =========================
-       EDUCATION
-    ========================= */
+/* education */
 
     .education-section {
         padding-top: 20px;
@@ -140,11 +105,6 @@
         width: 40px;
         height: 40px;
     }
-
-    /*
-       Keep cat beside education,
-       but move it slightly inward.
-    */
 
     .education-image {
         right: 1%;
@@ -181,9 +141,7 @@
     }
 
 
-    /* =========================
-       SKILLS
-    ========================= */
+    /* skills */
 
     .skills-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -195,9 +153,7 @@
     }
 
 
-    /* =========================
-       PROJECTS
-    ========================= */
+    /* projects */
 
     .projects-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -208,10 +164,7 @@
         padding: 22px;
     }
 
-
-    /* =========================
-       EXPERIENCE
-    ========================= */
+/* experinence */
 
     .experience-heading {
         margin-bottom: 30px;
@@ -258,9 +211,7 @@
     }
 
 
-    /* =========================
-       CONTACT
-    ========================= */
+    /* contact */
 
     .contact-heading p {
         font-size: 15px;
@@ -271,20 +222,14 @@
     }
 
 
-    /* =========================
-       FOOTER
-    ========================= */
+    /* footer */
 
     .footer-bottom {
         gap: 15px;
     }
 }
 
-
-/* =========================================================
-   MOBILE
-   600px and below
-========================================================= */
+/* mobile */
 
 @media (max-width: 600px) {
 
@@ -293,9 +238,7 @@
     }
 
 
-    /* =========================
-       HERO
-    ========================= */
+    /* hero*/
 
     .hero-section {
         min-height: 430px;
@@ -336,9 +279,7 @@
     }
 
 
-    /* =========================
-       COMMON SECTION
-    ========================= */
+    /* common */
 
     section {
         padding: 22px 0;
@@ -356,10 +297,7 @@
         font-size: 14px;
     }
 
-
-    /* =========================
-       ABOUT
-    ========================= */
+/* about */
 
     .about-section {
         padding-top: 15px;
@@ -380,10 +318,7 @@
         margin-bottom: 15px;
     }
 
-
-    /* =========================
-       EDUCATION
-    ========================= */
+/* education */
 
     .education-section {
         padding-top: 15px;
@@ -410,20 +345,6 @@
         height: 34px;
     }
 
-
-    /*
-       IMPORTANT:
-
-       On mobile the cat becomes part of the normal
-       document flow instead of being absolute.
-
-       This prevents it from covering:
-       - education heading
-       - timeline
-       - university text
-       - second education item
-    */
-
     .education-image {
         position: static;
 
@@ -443,10 +364,6 @@
         height: auto;
     }
 
-
-    /* =========================
-       EDUCATION TIMELINE
-    ========================= */
 
     .education-timeline {
         padding-left: 38px;
@@ -494,9 +411,6 @@
     }
 
 
-    /* =========================
-       SKILLS
-    ========================= */
 
     .skills-title {
         gap: 8px;
@@ -539,10 +453,6 @@
     }
 
 
-    /* =========================
-       PROJECTS
-    ========================= */
-
     .project-title {
         gap: 8px;
     }
@@ -580,10 +490,6 @@
     }
 
 
-    /* =========================
-       EXPERIENCE
-    ========================= */
-
     .experience-heading {
         margin-bottom: 25px;
     }
@@ -595,11 +501,6 @@
     .experience-title h2 {
         font-size: 28px;
     }
-
-    /*
-       Sword always stays directly beside
-       the Experience heading.
-    */
 
     .experience-image {
         position: static;
@@ -615,10 +516,6 @@
         height: 34px;
     }
 
-
-    /* =========================
-       EXPERIENCE TIMELINE
-    ========================= */
 
     .experience-timeline {
         padding-left: 38px;
@@ -674,19 +571,12 @@
     }
 
 
-    /* =========================
-       CONTACT
-    ========================= */
-
     .contact-heading p {
         font-size: 14px;
         line-height: 1.7;
     }
 
 
-    /* =========================
-       FOOTER
-    ========================= */
 
     .site-footer {
         padding: 20px 0;
@@ -704,21 +594,12 @@
 }
 
 
-/* =========================================================
-   VERY SMALL PHONES
-   400px and below
-========================================================= */
-
 @media (max-width: 400px) {
 
     .container {
         width: 92%;
     }
 
-
-    /* =========================
-       HERO
-    ========================= */
 
     .hero-section {
         min-height: 400px;
@@ -738,11 +619,6 @@
         font-size: 13px;
     }
 
-
-    /* =========================
-       HEADINGS
-    ========================= */
-
     .section-heading h2,
     .education-title h2,
     .project-title h2,
@@ -750,10 +626,6 @@
         font-size: 25px;
     }
 
-
-    /* =========================
-       EDUCATION CAT
-    ========================= */
 
     .education-image {
         width: 145px;
@@ -766,10 +638,6 @@
         width: 145px;
     }
 
-
-    /* =========================
-       EDUCATION
-    ========================= */
 
     .education-timeline {
         padding-left: 34px;
@@ -803,10 +671,6 @@
         font-size: 13px;
     }
 
-
-    /* =========================
-       EXPERIENCE
-    ========================= */
 
     .experience-timeline {
         padding-left: 34px;
@@ -847,11 +711,6 @@
         font-size: 13px;
     }
 
-
-    /* =========================
-       SWORD
-    ========================= */
-
     .experience-image {
         width: 30px;
         height: 30px;
@@ -862,11 +721,6 @@
         height: 30px;
     }
 
-
-    /* =========================
-       EDUCATION ICON
-    ========================= */
-
     .edu-image {
         width: 30px;
         height: 30px;
@@ -876,11 +730,6 @@
         width: 30px;
         height: 30px;
     }
-
-
-    /* =========================
-       PROJECT ICON
-    ========================= */
 
     .project-image {
         width: 30px;
